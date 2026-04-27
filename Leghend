@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for Your Business Website</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f172a; color: #e2e8f0; line-height: 1.6;
+      padding: 20px;
+    }
+    .container { max-width: 700px; margin: 0 auto; }
+    .card {
+      background: #1e293b; border-radius: 12px; padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    h1 { font-size: 2rem; margin-bottom: 8px; color: #f8fafc; }
+    .sub { color: #94a3b8; margin-bottom: 24px; }
+    label { display: block; margin: 16px 0 6px; font-weight: 600; }
+    input, select, textarea {
+      width: 100%; padding: 12px; border-radius: 8px;
+      border: 1px solid #334155; background: #0f172a; color: #e2e8f0;
+      font-size: 1rem;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #3b82f6; border-color: transparent;
+    }
+    button {
+      margin-top: 24px; width: 100%; padding: 14px;
+      background: #3b82f6; color: white; border: none;
+      border-radius: 8px; font-size: 1.1rem; font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #2563eb; }
+    .success {
+      display: none; background: #064e3b; color: #d1fae5;
+      padding: 16px; border-radius: 8px; margin-top: 20px;
+    }
+    .note { font-size: 0.9rem; color: #64748b; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Get Your Business Website</h1>
+      <p class="sub">Fill this form and we’ll build a site for your work. Free quote in 24 hours.</p>
+      
+      <form id="applyForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="business">Business Name</label>
+        <input type="text" id="business" name="business" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone / WhatsApp</label>
+        <input type="tel" id="phone" name="phone" placeholder="+92 300 1234567">
+
+        <label for="type">Type of Business</label>
+        <select id="type" name="type" required>
+          <option value="">Select...</option>
+          <option>Restaurant / Cafe</option>
+          <option>Retail / Shop</option>
+          <option>Services</option>
+          <option>Portfolio / Freelancer</option>
+          <option>Other</option>
+        </select>
+
+        <label for="details">What do you need on the website?</label>
+        <textarea id="details" name="details" rows="5" placeholder="Ex: Menu, booking, gallery, online store..." required></textarea>
+
+        <label for="budget">Estimated Budget</label>
+        <select id="budget" name="budget">
+          <option>Under \$200</option>
+          <option>\$200 - \$500</option>
+          <option>\$500 - \$1000</option>
+          <option>\$1000+</option>
+          <option>Not sure yet</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+        <p class="note">We respect your privacy. Your info is only used to contact you about your site.</p>
+      </form>
+      
+      <div class="success" id="successMsg">
+        ✅ Thanks! Your application was sent. We’ll contact you within 24 hours.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Show success message if redirected back with ?success=true
+    if (window.location.search.includes('success=true')) {
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('applyForm').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
